@@ -1,0 +1,8 @@
+version: 2
+updates:
+- package-ecosystem: cargo
+  directory: "/"
+  schedule:
+    interval: weekly
+  # temporarily disable PR creation due to https://github.com/actions/checkout/issues/298
+  open-pull-requests-limit: 0

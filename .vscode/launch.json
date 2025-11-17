@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug sp1-cluster-bidder",
+            "type": "lldb",
+            "request": "launch",
+
+            // Path to the binary built by cargo from THIS crate
+            "program": "${workspaceFolder}/target/debug/sp1-cluster-bidder",
+
+            // Working directory is your crate root so relative paths/env work
+            "cwd": "${workspaceFolder}/bin/bidder",
+
+            // Set env or override rpc_grpc_addr here
+            "env": {
+                "RPC_GRPC_ADDR": "127.0.0.1:9000",
+                "RUST_LOG": "debug",
+                "RUST_BACKTRACE": "1"
+            },
+
+            "preLaunchTask": "cargo build",
+
+            // Pass arguments to main if needed
+            "args": []
+        }
+    ]
+}
