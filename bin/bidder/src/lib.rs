@@ -1,4 +1,4 @@
-//! Extremely simple bidder.
+//! Extremely simple bidder copied2.
 //!
 //! Policy:
 //! - Large orders bid BID_LARGE_AMOUNT (default 0.45 PROVE).
@@ -80,6 +80,8 @@ impl Bidder {
         _plonk_buffer_sec: u64,
         _groth16_enabled: bool,
         _plonk_enabled: bool,
+        history_probe_enabled: bool,
+        history_probe_limit: u32,
     ) -> Self {
         load_env_files();
 
@@ -95,8 +97,6 @@ impl Bidder {
         let request_limit = env_u32("BID_REQUEST_LIMIT", D_REQUEST_LIMIT);
         let small_max_gas_inclusive = env_u64("BID_SMALL_MAX_GAS", D_SMALL_MAX_GAS);
         let enable_small_orders = env_bool("BID_ENABLE_SMALL", false);
-        let history_probe_enabled = settings.debug_probe_history;
-        let history_probe_limit = settings.debug_history_limit;
 
         let small_raw = env::var("BID_SMALL_AMOUNT").unwrap_or_else(|_| "0.01".into());
         let large_raw = env::var("BID_LARGE_AMOUNT").unwrap_or_else(|_| "0.45".into());

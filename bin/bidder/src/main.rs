@@ -1,3 +1,4 @@
+//copied2
 use std::{net::SocketAddr, str::FromStr};
 
 use alloy_signer_local::PrivateKeySigner;
@@ -89,6 +90,8 @@ async fn main() -> Result<()> {
         settings.plonk_buffer_sec,
         settings.groth16_enabled,
         settings.plonk_enabled,
+        settings.debug_probe_history,
+        settings.debug_history_limit,
     );
 
     // Spawn the bidder task.
